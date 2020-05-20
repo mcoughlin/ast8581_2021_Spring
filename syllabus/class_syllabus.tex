@@ -1,0 +1,291 @@
+% Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in,headheight=3ex,headsep=3ex]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{bbding}
+
+\newcommand{\blankline}{\quad\pagebreak[2]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Modify Course title, instructor name, semester here %%%%%%%%
+
+\title{AST 8581 / PHYS 8581 / CSCI 8581: Big Data in Astrophysics}
+\author{Prof. Michael Coughlin}
+\date{Spring 2021}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[sc]{mathpazo}
+\linespread{1.05} % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+\usepackage[mmddyyyy]{datetime}% http://ctan.org/pkg/datetime
+\usepackage{advdate}% http://ctan.org/pkg/advdate
+\newdateformat{syldate}{\twodigit{\THEMONTH}/\twodigit{\THEDAY}}
+\newsavebox{\MONDAY}\savebox{\MONDAY}{Mon}% Mon
+\newcommand{\week}[1]{%
+%  \cleardate{mydate}% Clear date
+% \newdate{mydate}{\the\day}{\the\month}{\the\year}% Store date
+  \paragraph*{\kern-2ex\quad #1, \syldate{\today} - \AdvanceDate[4]\syldate{\today}:}% Set heading  \quad #1
+%  \setbox1=\hbox{\shortdayofweekname{\getdateday{mydate}}{\getdatemonth{mydate}}{\getdateyear{mydate}}}%
+  \ifdim\wd1=\wd\MONDAY
+    \AdvanceDate[7]
+  \else
+    \AdvanceDate[7]
+  \fi%
+}
+\usepackage{setspace}
+\usepackage{multicol}
+%\usepackage{indentfirst}
+\usepackage{fancyhdr,lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{layout}
+\usepackage{indentfirst}
+\usepackage{caption}
+
+
+\lhead{}
+\chead{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Modify header here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rhead{\footnotesize AST1011H}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lfoot{}
+\cfoot{\small \thepage/\pageref*{LastPage}}
+\rfoot{}
+
+\usepackage{array, xcolor}
+\usepackage{color,hyperref}
+\definecolor{clemsonorange}{HTML}{EA6A20}
+\hypersetup{colorlinks,breaklinks,linkcolor=clemsonorange,urlcolor=clemsonorange,anchorcolor=clemsonorange,citecolor=black}
+
+\usepackage[english]{babel}
+ 
+
+\begin{document}
+
+\maketitle
+
+\blankline
+
+
+
+\begin{tabular*}{.90\textwidth}{lr}  % @{\extracolsep{\fill}}lr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Modify information %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+E-mail: \texttt{cough052@umn.edu} & \\ 
+ Class Hours: Mon/Wed 14:30-16:25 pm & Class Room: ??? \\
+ Office Hours: ?????; ?????? &  Office: Tate 275-02 \\
+ Website: \url{https://github.com/mcoughlin/ast8581_2021_Spring}
+
+% Office Hours: Mon 11:00-12:00 am; Wed 1:00-2:00 pm &  Class Hours: Mon/Wed 2:30-3:45pm \\
+% Office: Tate 285-12 & Class Room: Tate B65 \\
+% & \\
+%Lab Room: ... & Lab Hours: W 3-5pm \\
+&  \\
+\hline
+\end{tabular*}
+
+\vspace{5 mm}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.6em}
+\renewcommand{\baselinestretch}{1.2}
+
+% First Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Please read the entire syllabus carefully; you are responsible for all of the requirements and procedures described here. You are also responsible for all announcements, assignments, changes, etc., whether or not you are in class. 
+
+This course will introduce key concepts and techniques used to work with large datasets, in the
+context of the field of astrophysics. In the first 4 weeks of the course the focus will be on the modern approaches to creating and manipulating databases, with the focus on SQL that is heavily used for astrophysics survey data. The remaining part of the course will focus on a range of machine learning techniques for processing data: classification algorithms (supervised and unsupervised learning), clustering algorithms, regression problems, recommender systems, graphic models and others. The course will dedicate about 2 weeks to each algorithm type: the algorithms will first be introduced in 1-2 lectures, and the emphasis will then be placed on team projects in which the students will apply the algorithms (and already available packages) to astrophysical data sets to answer specific astrophysics questions. The course will assume familiarity with basic concepts in astrophysics, but it will include brief reviews as needed to demonstrate the use of modern data analysis techniques.
+
+\section*{\centering Due Dates}
+\subsection*{Exams}
+\noindent \underline{Mid-Term 1}: March 1-5 (Take home exam; replacement for homework)
+
+\noindent \underline{Mid-Term 2}: April 26-30 (Take home exam; replacement for homework)
+%\vspace{2mm}
+
+%\noindent {\it Room assignments for the exams will be announced in class and posted on the course Canvas site}
+
+\subsection*{Final Project}
+\noindent \underline{Monday, Feb. 15 by 2:30 pm (start of class)}
+    Part I: 1-page (double-spaced) project proposal due to my email. The project can be in any area of astrophysics, as long as data analysis (and a lot of it) is involved. For the proposal, it should explain why your topic is of interest, including the main goals/motivating questions	 that caused you to choose it. It should also explain how your proposed project is appropriate for demonstrating the skills learned in this class. For criteria of success, it should explain what ``success'' looks like, or if you want, what you expect an ``A''-level project would be.
+    
+\noindent \underline{Monday, March 15 - Monday, May 3 during class}
+    Part II: 15 minute presentation (with 5 minutes for questions) to the class. The presentation should explain the project in a clear, logical and organized way, such that the listener should be able to easily follow. In the question section, the speaker should be able to respond and summarize when needed. For those demonstrating an easily digestible analysis, I might suggest showing off preliminary versions of these, if they exist.
+
+\noindent \underline{Friday, May 7 by 5 pm}
+    Final Project: project (content or some link to it is fine) due to my email.
+
+    
+\section*{\centering Required Texts/Materials}
+
+
+\subsection*{Primary Textbooks}
+
+\begin{itemize}
+\item \href{https://www.oreilly.com/library/view/statistics-data-mining/9780691151687/}{Statistics, Data Mining, and Machine Learning in Astronomy}, Ž. Ivezić, A. Connolly, J. T. VanderPlas \& A. Gray
+\end{itemize}
+
+\subsection*{Supplementary Textbooks}
+
+\begin{itemize}
+\item \href{https://jakevdp.github.io/PythonDataScienceHandbook/}{Python Data Science Handbook,} J T. VanderPlas
+\item \href{http://www.mmds.org/}{Mining of Massive Datasets}, J. Leskovec, A. Rajaraman, and J. Ullman, Cambridge University Press,
+2014.
+\item \href{https://www-users.cs.umn.edu/~kumar001/dmbook/index.php}{Introduction to Data Mining}, P.-N. Tan, M. Steinbach, A. Karpatne, and V. Kumar, 2019.
+\item \href{https://www.microsoft.com/en-us/
+research/people/cmbishop/prml-book/}{Pattern Recognition and Machine Learning}, C. Bishop 
+\item \href{https://github.com/LSSTC-DSFP/LSSTC-DSFP-Sessions}{Worked notebooks from the LSST Data Science Fellowship Program}.
+
+\end{itemize}
+
+%\clearpage
+\section*{\centering Course Requirements and Grading}
+\begin{table}[h!]
+%\title{\bf Course Requirements and Grading}
+\centering
+\begin{tabular}{p{85mm}|p{20mm}|p{40mm}}
+\hline
+Material & Total Points & \% of Grade \\
+\hline
+Final Project Total & 400 & 40\% {\bf See Note Below!} \\
+Problem Sets (On-line Mastering Astronomy) - {\bf DUE FRIDAY NIGHTS MIDNIGHT} & 300 & 30\% \\
+Class Participation (showing up to $\geq$80\% of classes will give you full credit) & 100 & 10\% \\
+Mid-terms & 2 @ 100 & 20\% \\
+Total for the Course & 1000 & 100\% \\
+\hline
+\end{tabular}
+\caption*{{\bf NOTE!  In order to receive a passing grade in the class you must earn at least 50\% of the total available lab points (120/240) AND at least 50\% of the total available class points (65/130). In addition, you must take both exams and turn in the final project.}\newline \newline
+{\bf Grading will be assigned approximately as follows based on past experience: {\bf A:} 900 - 1000; B: 800 - 899; C: 700 - 799; D: 600 - 699; F: 0 - 599 (You must receive a ``C-'' or better to receive a grade of ``S.'')} 
+\newline \newline
+For the final project, 10\% of the project will be graded on the proposal, 30\% on the project presentation, and 60\% on the project itself.
+\newline
+
+Keep copies of all materials upon which you are graded (homework, final project materials, and examinations) until the end of the semester.  
+Grades for each assignment, lab, and exam will be posted to the Canvas site as soon as scoring has been completed.
+%After the first two or three weeks of the semester, grade summaries will be posted weekly at ?? for labs, and as described on the Canvas site for lecture).   
+Students are expected to review their grade summaries for accuracy periodically during the semester and after the final examination.   Discrepancies should be reported to Prof. Coughlin. 
+\newline \newline
+%** Scores on Mastering Astronomy will be shown as \% of total available.
+
+}
+\label{tab:chisq}
+\end{table}
+
+
+
+
+\section*{\centering Course Policies and Procedures}
+
+\subsection*{Special Needs} Any students with special learning needs must contact their professor during the first two weeks of class.
+
+\subsection*{Student Mental Health Services} As a student you may experience a range of issues that can cause barriers to learning, such as strained relationships, increased anxiety, alcohol/drug problems, feeling down, difficulty concentrating and/or lack of motivation. These mental health concerns or stressful events may lead to diminished academic performance or reduce a your ability to participate in daily activities. University of Minnesota services are available to assist you with addressing these and other concerns you may be experiencing. You can learn more about the broad range of confidential mental health services available on campus via the Student Mental Health Website at \url{http://www.mentalhealth.umn.edu}
+
+\subsection*{Academic Standards} The scholastic conduct and classroom procedures of the Office of Community Standards will be followed. You are responsible for being familiar with these. Students are welcome to work together, exchange ideas, etc.   For the on-line assignments, you must log in individually, and provide your own answers, even if you talk things over with another student.  
+
+\clearpage
+
+%\section*{\centering Tenative Course Schedule}
+\begin{table}[h]
+\small
+\title{\bf \Large Tentative Course Schedule}
+\centering
+\begin{tabular}{|p{25mm}|p{70mm}|p{15mm}|p{35mm}|}
+\hline
+Class Dates & Topic & Chapter Reading  & Due Dates \\
+ &  & (approx.)  & \\
+\hline
+Jan 20 & First steps, crash course in python & 1, A & {\bf No HW} \\
+\hline
+Jan 25, 27 & Intro to Big Data, techniques for handling it & 2 & HW 1 \\
+ \hline
+Feb 1, 3 & Probability distributions, Astrophysics Datasets   &  3  & HW 2 \\
+ \hline
+Feb 8, 10 & Statistical inference - Classical, Databases - Overview  &  4  & HW 3  \\
+\hline
+Feb 15, 17 & Statistical inference -Bayesian,  MCMC, Databases - SQL   &  5  & HW 4 \newline Project Proposal due Feb 17 by class  \\
+ \hline
+Feb 22, 24 & Time Series Analysis - Introduction & 10  & HW 5 \\
+ \hline
+March 1, 3 & Time Series Analysis - Periodicity & 10  & {\bf Mid-Term Exam 1} {\bf April 5}  \\
+ \hline
+March 15, 17 & ML - Clustering & 6 & HW 6 \newline Project Presentations Begin \\
+ \hline
+March 22, 24 & ML - Regression and Model Fitting & 8 & HW 7  \\ 
+ \hline
+ March 29, 31 & ML - Gaussian processes  & 8.10 & HW 8 \\ 
+ \hline
+ April 5, 7 & ML - Dimensionality Reduction & 7 & HW 9 \\
+ \hline 
+April 12, 14 & ML - Classification & 9 & HW 10 \\
+ \hline
+April 19, 21 & ML - Intro to Recommender Algorithms / Graphic Models  & -- & HW 11 \\
+ \hline
+ April 26, 27 & Visualization; Outliers, imbalanced, and missing data  & -- & \bf Mid-Term Exam 2 {\bf April 29} \\
+ \hline
+May 3 & Special Topics & -- & -- \\
+ \hline
+{\bf May 7} & {\bf Final Project Due - 5 pm} & & ~\\ 
+\hline
+\end{tabular}
+\label{tab:chisq}
+\end{table}
+\clearpage
+
+\section*{\centering Frequently Asked Questions:}
+
+\setlength\parindent{0pt}
+
+{\bf Q:} What if I miss a lecture? Things go by too fast for me to write everything down.
+
+{\bf A:} PDFs of all lectures will be available on the Canvas site, although they will differ somewhat from what is presented in lecture.  You can print out pdf versions of them beforehand to take notes on, minimizing the amount you have to write.  %Audio recordings of all lectures are also available on Canvas.
+
+\vspace{5mm}
+{\bf Q:} I think that the lectures are going too fast.
+
+{\bf A:} Studies have shown that when students read the textbook before the corresponding lecture, problems with the lecture going too fast evaporate.
+
+\vspace{5mm}
+{\bf Q:} Where are the exams given?
+
+{\bf A:} The midterm exams are performed as Take Homes in lieu of homework for that week.
+
+\vspace{5mm}
+
+{\bf Q:} What do I do if I can't make it to an exam?
+
+{\bf A:} Contact me as soon as possible. All makeups require my written permission before the exam.  
+
+\vspace{5mm}
+
+{\bf Q:} Are the midterms graded on a curve?
+
+{\bf A:} For each midterm you are given a certain number of points. At the end of the course, these points are all added up and you are assigned a grade. Thus, there is no assignment of grades for each midterm.
+
+\vspace{5mm}
+
+{\bf Q:} How can I find out my exam and lab scores?  My on-line scores?
+
+{\bf A:} All scores will be posted on Canvas.
+
+\vspace{5mm}
+
+{\bf Q:} All of my assignments are given points, not grades. How can I estimate my grade in the course?
+
+{\bf A:} Add up all of your grades, divide by the total available at any point in the course, and compare to the preliminary grade distribution given in your syllabus.
+
+\end{document}

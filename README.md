@@ -28,3 +28,9 @@ homework in the `master` branch of your forked repo, but keep a separate
 your FirstName_LastName as with your homework. See the `update.sh` script for
 keeping your `master` branch up-to-date. The procedure is similar for any other
 branch - just `git checkout <BranchName>` first.
+
+### Related Material
+
+* Caltech Astroinformatics https://www.astro.caltech.edu/ay119/
+* GROWTH summer school: http://growth.caltech.edu/growth-school-2019.html
+* AURA winter school: http://www.aura-o.aura-astronomy.org/winter_school/ - go to Past Years.
