@@ -34,3 +34,4 @@ branch - just `git checkout <BranchName>` first.
 * Caltech Astroinformatics https://www.astro.caltech.edu/ay119/
 * GROWTH summer school: http://growth.caltech.edu/growth-school-2019.html
 * AURA winter school: http://www.aura-o.aura-astronomy.org/winter_school/ - go to Past Years.
+* YouTube Neural Networks: https://www.youtube.com/watch?v=aircAruvnKk
