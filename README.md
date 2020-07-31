@@ -31,7 +31,8 @@ branch - just `git checkout <BranchName>` first.
 
 ### Related Material
 
-* Caltech Astroinformatics https://www.astro.caltech.edu/ay119/
+* UIUC Fundamentals of Data science: https://github.com/gnarayan/ast596_2020_Spring
+* Caltech Astroinformatics: https://www.astro.caltech.edu/ay119/
 * GROWTH summer school: http://growth.caltech.edu/growth-school-2019.html
 * AURA winter school: http://www.aura-o.aura-astronomy.org/winter_school/ - go to Past Years.
 * YouTube Neural Networks: https://www.youtube.com/watch?v=aircAruvnKk
