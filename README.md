@@ -1,5 +1,5 @@
 # AST 8581 / PHYS 8581 / CSCI 8581: Big Data in Astrophysics
-### Michael Coughlin, UMN
+### Michael Coughlin and Michael Steinbach, UMN
 #### MW 14:30-16:25 
 
 Course materials for Big Data in Astrophysics
